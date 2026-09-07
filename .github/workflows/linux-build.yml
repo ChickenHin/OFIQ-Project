@@ -1,10 +1,10 @@
 name: Linux Build
 
 on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
+  # push:
+  #   branches: [ main, develop ]
+  # pull_request:
+  #   branches: [ main, develop ]
   workflow_dispatch:
 
 jobs:
@@ -40,9 +40,9 @@ jobs:
         cd scripts
         sh conformance_tests.sh ${{ matrix.configuration == 'Debug' && '--debug' || '' }}
 
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: ofiq-ubuntu-${{ matrix.configuration }}
-        path: ./install_x86_64_linux/*
+    # - name: Upload Build Artifacts
+    #   uses: actions/upload-artifact@v4
+    #   if: always()
+    #   with:
+    #     name: ofiq-ubuntu-${{ matrix.configuration }}
+    #     path: ./install_x86_64_linux/*
