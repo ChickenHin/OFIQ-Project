@@ -1,10 +1,10 @@
 name: Windows Build
 
 on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
+  # push:
+  #   branches: [ main, develop ]
+  # pull_request:
+  #   branches: [ main, develop ]
   workflow_dispatch:
 
 jobs:
@@ -53,9 +53,9 @@ jobs:
         .\conformance_tests.cmd ${{ matrix.configuration == 'Debug' && '--debug' || '' }}
       shell: cmd
 
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: ofiq-windows-${{ matrix.architecture }}-${{ matrix.configuration }}
-        path: ./*
+    # - name: Upload Build Artifacts
+    #   uses: actions/upload-artifact@v4
+    #   if: always()
+    #   with:
+    #     name: ofiq-windows-${{ matrix.architecture }}-${{ matrix.configuration }}
+    #     path: ./*
